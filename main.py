@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from llamaapi import LlamaAPI
 
 load_dotenv()
-api_key = os.getenv("API_KEY")
+api_key = os.getenv("LLAMA_API_KEY")
 
 llama = LlamaAPI(api_key)
 
