@@ -15,12 +15,18 @@ from dotenv import load_dotenv
 def get_game_title(home, away):
     return home + " is facing " + away 
 
-def get_odds(res, team):
+def get_odds(res):
     home_money_line = res["AlternateMarketPregameOdds"][0]["HomeMoneyLine"]
     away_money_line = res["AlternateMarketPregameOdds"][0]["AwayMoneyLine"]
     home_money_int = int(home_money_line)
     away_money_int = int(away_money_line)
-    return max(home_money_int, away_money_int)
+    if min(home_money_int, away_money_int) == home_money_int:
+        ret_str = res["HomeTeamName"] + " is the favorite at " + str(min(home_money_int, away_money_int)) +"\n"
+        ret_str += res["AwayTeamName"] + " is the underdog at +" + str(away_money_int)
+    else:
+        ret_str = res["AwayTeamName"] + " is the favorite at " + str(min(home_money_int, away_money_int)) +"\n"
+        ret_str += res["HomeTeamName"] + " is the underdog at +" + str(home_money_int)
+    return ret_str
 
 if __name__ == "__main__":
     load_dotenv()
@@ -39,8 +45,8 @@ if __name__ == "__main__":
 
     if response.status_code == 200:
         with open('response.json', 'w') as file:
-            print('writing to file')
-            file.write(str(res_data))
+            json.dump(res_data, file, indent=4)
+            print(get_odds(res_data[1]))
     else:
         print(f"Failed to retrieve data: {response.status_code}")
 
