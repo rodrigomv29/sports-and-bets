@@ -46,7 +46,8 @@ if __name__ == "__main__":
     if response.status_code == 200:
         with open('response.json', 'w') as file:
             json.dump(res_data, file, indent=4)
-            print(get_odds(res_data[1]))
+            for i in range(len(res_data)):
+                print(get_odds(res_data[i]))
     else:
         print(f"Failed to retrieve data: {response.status_code}")
 
