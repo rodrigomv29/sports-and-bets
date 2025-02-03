@@ -24,3 +24,16 @@ except:
     print("\n\n\n\n\n " + response.text)
 
 """
+import sqlite3
+def connect_to_db(name):
+    conn = None
+    try:
+        conn = sqlite3.connect(name)
+        print(f"Connected to database {name} successfully.")
+    except sqlite3.Error as e:
+        print(f"Error connecting to database: {e}")
+    return conn
+
+if __name__ == "__main__":
+    connection = connect_to_db('sports.db')
+    print(connection)

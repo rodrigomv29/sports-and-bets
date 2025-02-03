@@ -5,3 +5,4 @@ bin/
 include/
 pyvenv.cfg
 response.json
+sports.db

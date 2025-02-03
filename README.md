@@ -22,4 +22,4 @@ pip install requests
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada. 
 
-This project retrieves sports data from sportsdata.io and saves the response to a JSON file.
+This project retrieves sports data from sportsdata.io and saves the response to a JSON file.By: Rodrigo Morales
