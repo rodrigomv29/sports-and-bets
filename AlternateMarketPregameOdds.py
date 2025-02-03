@@ -33,3 +33,4 @@ class AlternateMarketPregameOdds:
         self.asian_total_over_payout = asian_total_over_payout
         self.asian_total_under_payout = asian_total_under_payout
         self.odd_type = odd_type
+    
